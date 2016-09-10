@@ -2,6 +2,7 @@ var path = require('path');
 var htmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+    devtool: 'source-map',
     context: path.join(__dirname, 'app'),
     entry: {
         app: './components/main.js' // This path is relative to the context declared above

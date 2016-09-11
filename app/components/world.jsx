@@ -1,9 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-class World extends React.Component {
+export default class World extends React.Component {
     render(){
-        return(<h1>Ria Chella kutty!!</h1>)
+        return(
+            <div>
+                <h1>Ria kutty!!!!!!</h1>
+                <input />
+            </div>
+
+        );
     }
 }
 

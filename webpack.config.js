@@ -16,7 +16,7 @@ module.exports = {
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
-        new ExtractTextPlugin('static/style.css', {
+        new ExtractTextPlugin('style.css', {
             allChunks: true
         })
     ],

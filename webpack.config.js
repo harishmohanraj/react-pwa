@@ -1,5 +1,6 @@
 var path = require('path');
 var webpack = require('webpack');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     devtool: 'eval',
@@ -14,7 +15,10 @@ module.exports = {
         publicPath: '/static/'
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin()
+        new webpack.HotModuleReplacementPlugin(),
+        new ExtractTextPlugin('static/style.css', {
+            allChunks: true
+        })
     ],
     module: {
         loaders: [{
@@ -26,6 +30,10 @@ module.exports = {
                 test: /\.js$/,
                 loaders: ['react-hot', 'babel-loader'],
                 include: path.join(__dirname, 'app')
+            },
+            {
+                test: /\.scss$/,
+                loader: ExtractTextPlugin.extract('css!sass')
             }
         ]
     }

@@ -25,7 +25,10 @@
   "homepage": "https://github.com/harishuideveloper/react-pwa#readme",
   "dependencies": {
     "react": "^15.3.1",
-    "react-dom": "^15.3.1"
+    "react-dom": "^15.3.1",
+    "react-redux": "^4.4.5",
+    "redux": "^3.6.0",
+    "redux-devtools": "^3.3.1"
   },
   "devDependencies": {
     "babel-core": "^6.14.0",

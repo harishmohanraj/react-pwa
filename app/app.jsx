@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Router, Link, Route, IndexRoute, hashHistory } from 'react-router';
 import Header from './components/header/header.jsx';
 import World from './components/world/world.jsx';
+import Main from './containers/main.jsx';
 
 require('./styles/main.scss');
 
@@ -12,9 +13,8 @@ ReactDOM.render((
 <div>
     <Header />
     <Router history={hashHistory}>
-        <Route path="/" component={Header}>
-            <IndexRoute component={Header}></IndexRoute>
-            <Route path="/world" component={World}></Route>
+        <Route path="/" component={Main}>
+            <IndexRoute component={Main}></IndexRoute>
         </Route>    
     </Router>
     <World />

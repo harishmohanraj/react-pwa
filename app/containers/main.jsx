@@ -40,7 +40,6 @@ export default class Main extends React.Component {
       <div className="col-10">
           <Header />
         <div className="main-container">
-        load the indidual container routes here
           <OurLeaders />
         </div>
       </div>

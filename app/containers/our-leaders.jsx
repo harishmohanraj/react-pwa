@@ -1,5 +1,6 @@
 import React from 'react';  
-import ReactDOM from 'react-dom';  
+import ReactDOM from 'react-dom'; 
+import DataList from '../components/data-list/data-list.jsx'; 
 
 export default class OurLeaders extends React.Component{
     constructor(){
@@ -10,10 +11,10 @@ export default class OurLeaders extends React.Component{
             <div className="col-12">
                 <h1>Our Leaders</h1>
                 <div className="col-6">
-                    table component with lok sabha 
+                    <DataList /> 
                 </div>
                 <div className="col-6">
-                    table component with raja sabha
+                    <DataList />
                 </div>
             </div>
             )

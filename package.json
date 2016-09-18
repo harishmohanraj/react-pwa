@@ -25,6 +25,7 @@
   "homepage": "https://github.com/harishuideveloper/react-pwa#readme",
   "dependencies": {
     "chart.js": "^1.1.1",
+    "normalize-scss": "^5.0.3",
     "react": "^15.3.1",
     "react-chartjs": "^0.8.0",
     "react-dom": "^15.3.1"

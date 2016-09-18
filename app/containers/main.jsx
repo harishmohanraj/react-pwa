@@ -4,6 +4,9 @@ import MainStore from '../stores/main-store.js';
 import * as MainAction from '../actions/main-action.js';
 import config from '../config/config.js';
 import Bar from '../components/chart/chart.jsx';
+import Header from '../components/header/header.jsx';
+import OurLeaders from './our-leaders.jsx';
+
 
 
 export default class Main extends React.Component {
@@ -34,11 +37,12 @@ export default class Main extends React.Component {
   }
   render(){
     return(
-      <div className="container">
-          <h1>{this.state.displayInputValue}</h1>
-          <input type="text" onChange={(e) => this.onChange(e)}/>
-          <Bar />
-          
+      <div className="col-10">
+          <Header />
+        <div className="main-container">
+        load the indidual container routes here
+          <OurLeaders />
+        </div>
       </div>
     );
   }

@@ -1,1 +1,39 @@
-body {}
+//colors
+$color_gallery_approx: #f0f0f0;
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    background-color: $color_gallery_approx;
+}
+
+img {
+    max-width: 100%;
+}
+
+body {
+    .container {
+        padding: 20px;
+    }
+    .col-10 {
+        width: 100%;
+    }
+    .col-10 {
+        width: 84%;
+        float: left;
+    }
+    .col-6 {
+        width: 50%;
+        float: left;
+    }
+    .col-2 {
+        width: 16%;
+        height: 100%;
+        float: left;
+    }
+    .main-container {
+        padding: 20px 65px;
+    }
+}

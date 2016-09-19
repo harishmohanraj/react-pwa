@@ -1,22 +1,16 @@
 import dispatcher from '../dispatcher/dispatcher';
 import axios from 'axios';
 
-export function updateValue(value) {
-    dispatcher.dispatch({
-        type: "UPDATE_INPUT",
-        value: value
-    });
-}
-
-export function makeAjaxRequest(url) {
-    axios.get(url)
-        .then((response) => successHandler(response))
+export function makeAjaxRequest(requestObj) {
+    const actionType = requestObj.actionType;
+    axios.get(requestObj.url)
+        .then((response) => successHandler(response, actionType))
         .catch((error) => failureHandler(error))
 }
 
-function successHandler(response) {
+function successHandler(response, actionType) {
     dispatcher.dispatch({
-        type: "RESPONSE_DATA_SUCCESS",
+        type: actionType,
         value: response
     });
 }

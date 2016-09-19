@@ -5,16 +5,23 @@ class OurLeaderStore extends EventEmitter {
     constructor() {
         super();
         this.rajyaSabhaAttendence = null;
+        this.lokSabhaAttendence = null;
     }
 
     getState() {
         return {
-            rajyaSabhaAttendence: this.rajyaSabhaAttendence
+            rajyaSabhaAttendence: this.rajyaSabhaAttendence,
+            lokSabhaAttendence: this.lokSabhaAttendence
         }
     }
 
-    updateChart(response) {
+    updateRajyaSabhaChart(response) {
         this.rajyaSabhaAttendence = response.data;
+        this.emit('change');
+    }
+
+    updateLokSabhaChart(response) {
+        this.lokSabhaAttendence = response.data;
         this.emit('change');
     }
 
@@ -25,8 +32,10 @@ class OurLeaderStore extends EventEmitter {
 
     handelActions(action) {
         switch (action.type) {
-            case "RESPONSE_DATA_SUCCESS":
-                this.updateChart(action.value);
+            case "GET_RAJYA_SABHA_ATTENDENCE":
+                this.updateRajyaSabhaChart(action.value);
+            case "GET_LOK_SABHA_ATTENDENCE":
+                this.updateLokSabhaChart(action.value);
             case "RESPONSE_DATA_FAILURE":
                 this.showErrorMessage(action.value);
             default:

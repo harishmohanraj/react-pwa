@@ -10,7 +10,8 @@ export default class OurLeaders extends React.Component{
     constructor(){
         super();
         this.state={
-          rajyaSabhaAttendence : null
+          rajyaSabhaAttendence : null,
+          lokSabhaAttendence : null
         };
         this.updateState = this.updateState.bind(this);
         this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
@@ -18,12 +19,30 @@ export default class OurLeaders extends React.Component{
 
     updateState(){
         this.setState({
-            rajyaSabhaAttendence : OurLeaderStore.getState().rajyaSabhaAttendence.data
+            rajyaSabhaAttendence : OurLeaderStore.getState().rajyaSabhaAttendence ? OurLeaderStore.getState().rajyaSabhaAttendence.data : null,
+            lokSabhaAttendence : OurLeaderStore.getState().lokSabhaAttendence ? OurLeaderStore.getState().lokSabhaAttendence.data : null
         })
     }
 
     componentDidMount(){
-        MainAction.makeAjaxRequest(config.rajyaSabhaAttendence);
+        this.getRajyaSabhaAttendance();
+        this.getlokSabhaAttendence();
+    }
+
+    getRajyaSabhaAttendance(){
+        const requestObj = {
+            'url':config.rajyaSabhaAttendence,
+            'actionType':'GET_RAJYA_SABHA_ATTENDENCE'
+        }
+        MainAction.makeAjaxRequest(requestObj);
+    }
+
+    getlokSabhaAttendence(){
+        const requestObj = {
+            'url':config.lokSabhaAttendence,
+            'actionType':'GET_LOK_SABHA_ATTENDENCE'
+        }
+        MainAction.makeAjaxRequest(requestObj);
     }
 
     componentWillMount(){
@@ -35,7 +54,8 @@ export default class OurLeaders extends React.Component{
     }
 
     renderList(list,name){
-        return list ? <DataList dataList = {list} name={name}/> : null;
+        
+        return list ? <DataList dataList = {list} name={name}/> : <div className="spinner"></div>;
     }
 
     render(){
@@ -46,7 +66,7 @@ export default class OurLeaders extends React.Component{
                     {this.renderList(this.state.rajyaSabhaAttendence,'Rajya Sabha 15 - Attendence')}
                 </div>
                 <div className="col-6">
-                    {this.renderList(this.state.rajyaSabhaAttendence,'Lok Sabha 15 - Attendence')}
+                    {this.renderList(this.state.lokSabhaAttendence,'Lok Sabha 15 - Attendence')}
                 </div>
             </div>
             )

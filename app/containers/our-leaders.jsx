@@ -27,15 +27,19 @@ export default class OurLeaders extends React.Component{
         OurLeaderStore.on('change',this.updateState.bind(this))
     }
 
+    renderList(list,name){
+        return list ? <DataList dataList = {list} name={name}/> : null;
+    }
+
     render(){
         return(
             <div className="col-12">
                 <h1>Our Leaders</h1>
                 <div className="col-6">
-                    <DataList dataList = {this.state.rajyaSabhaAttendence} name="Rajya Sabha 15 - Attendence"/> 
+                    {this.renderList(this.state.rajyaSabhaAttendence,'Rajya Sabha 15 - Attendence')}
                 </div>
                 <div className="col-6">
-                    <DataList dataList = {this.state.rajyaSabhaAttendence} name="Lok Sabha 15 - Attendence"/>
+                    {this.renderList(this.state.rajyaSabhaAttendence,'Rajya Sabha 15 - Attendence')}
                 </div>
             </div>
             )

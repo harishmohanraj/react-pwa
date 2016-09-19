@@ -4,7 +4,7 @@ import dispatcher from '../dispatcher/dispatcher';
 class OurLeaderStore extends EventEmitter {
     constructor() {
         super();
-        this.rajyaSabhaAttendence = {};
+        this.rajyaSabhaAttendence = null;
     }
 
     getState() {

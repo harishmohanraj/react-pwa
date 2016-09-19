@@ -1,16 +1,18 @@
 import { EventEmitter } from "events";
-
 import dispatcher from '../dispatcher/dispatcher';
 
 class MainStore extends EventEmitter {
     constructor() {
         super();
         this.displayInputValue = '';
-
+        this.data = {};
     }
 
     getState() {
-        return this.displayInputValue;
+        return {
+            displayInputValue: this.displayInputValue,
+            data: this.data
+        }
     }
 
     updateState(newValue) {
@@ -18,10 +20,24 @@ class MainStore extends EventEmitter {
         this.emit('change');
     }
 
+    updateChart(response) {
+        this.data = response.data;
+        this.emit('change');
+    }
+
+    showErrorMessage(error) {
+        this.data = error;
+        this.emit('change');
+    }
+
     handelActions(action) {
         switch (action.type) {
             case "UPDATE_INPUT":
                 this.updateState(action.value);
+            case "RESPONSE_DATA_SUCCESS":
+                this.updateChart(action.value);
+            case "RESPONSE_DATA_FAILURE":
+                this.showErrorMessage(action.value);
             default:
                 return;
         }
@@ -30,5 +46,4 @@ class MainStore extends EventEmitter {
 
 const mainStore = new MainStore;
 dispatcher.register(mainStore.handelActions.bind(mainStore))
-window.dispatcher = dispatcher;
 export default mainStore;

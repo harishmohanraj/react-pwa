@@ -6,6 +6,10 @@ require('./data-list.scss');
 export default class DataList extends React.Component {
 
     returnIndividualList(list,i){
+        const widthPercentage = isNaN(Math.round(list[8]/list[7]*100)) ? '0' : Math.round(list[8]/list[7]*100) ;
+        const progressBar = {
+            width : `${widthPercentage}%`
+        };
         return(
             <ul key={i} className="data-row">
                 <li className="data-column">{++i}</li>
@@ -16,8 +20,8 @@ export default class DataList extends React.Component {
                 <li className="data-column">
                 <div className="progress-bar horizontal">
                     <div className="progress-track">
-                        <span className="progress-info">100%</span>
-                        <div className="progress-fill"></div>
+                        <span className="progress-info">{`${widthPercentage}%`}</span>
+                        <div className="progress-fill" style={progressBar} ></div>
                     </div>
                 </div>
                 </li>

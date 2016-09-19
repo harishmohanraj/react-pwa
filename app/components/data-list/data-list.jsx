@@ -5,7 +5,7 @@ require('./data-list.scss');
 
 export default class DataList extends React.Component {
 
-    renderList(list,i){
+    returnIndividualList(list,i){
         return(
             <ul key={i} className="data-row">
                 <li className="data-column">{++i}</li>
@@ -23,11 +23,10 @@ export default class DataList extends React.Component {
                 </li>
             </ul>
         )
-        
     }
 
-    renderKids(dataList){
-        return dataList.map((list,i) => this.renderList(list,i));
+    renderLists(dataList){
+        return dataList.map((list,i) => this.returnIndividualList(list,i));
     }
 
     render(){
@@ -36,7 +35,7 @@ export default class DataList extends React.Component {
                 <h2>{this.props.name}</h2>
                 <div className="data-list-container">
                     <div className="list">
-                        {this.renderKids(this.props.dataList)}
+                        {this.renderLists(this.props.dataList)}
                     </div>
                 </div>
             </div>

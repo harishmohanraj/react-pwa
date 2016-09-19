@@ -2,20 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';  
 import { Router, Link, Route, IndexRoute, hashHistory } from 'react-router';
 import Main from './containers/main.jsx';
-import SideBar from './components/sidebar/sidebar.jsx';
 
 require('./styles/main.scss');
 
 const app = document.getElementById('app');
 
-ReactDOM.render((
-<div>
-    <SideBar />
-    <Router history={hashHistory}>
-        <Route path="/" component={Main}>
-            <IndexRoute component={Main}></IndexRoute>
-        </Route>    
-    </Router>
-</div>
-
-), app);
+ReactDOM.render(<Main />, app);

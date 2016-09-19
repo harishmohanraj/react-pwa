@@ -6,19 +6,17 @@ require('./sidebar.scss');
 export default class SideBar extends React.Component{
     render(){
         return(
-            <div className="col-2">
-                <aside className="side-bar">
-                    <a className="site-logo"><img src="app/assets/site-logo.png" alt="My India logo"/></a>
-                    <nav className="main-nav">
-                        <ul>
-                            <li><a href="#">Test</a></li>
-                            <li><a href="#">Test</a></li>
-                            <li><a href="#">Test</a></li>
-                            <li><a href="#">Test</a></li>
-                        </ul>
-                    </nav>
-                </aside>
-            </div>
+            <aside className="side-bar">
+                <a className="site-logo"><img src="app/assets/site-logo.png" alt="My India logo"/></a>
+                <nav className="main-nav">
+                    <ul>
+                        <li><a href="#">Test</a></li>
+                        <li><a href="#">Test</a></li>
+                        <li><a href="#">Test</a></li>
+                        <li><a href="#">Test</a></li>
+                    </ul>
+                </nav>
+            </aside>
         )
     }
 }  

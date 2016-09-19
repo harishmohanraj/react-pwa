@@ -6,7 +6,7 @@ import config from '../config/config.js';
 import Bar from '../components/chart/chart.jsx';
 import Header from '../components/header/header.jsx';
 import OurLeaders from './our-leaders.jsx';
-
+import SideBar from '../components/sidebar/sidebar.jsx';
 
 
 export default class Main extends React.Component {
@@ -36,10 +36,15 @@ export default class Main extends React.Component {
   }
   render(){
     return(
-      <div className="col-10">
+      <div className="col-12">
+        <div className="col-2">
+          <SideBar />
+        </div>
+        <div className="col-10">
           <Header />
-        <div className="main-container">
-          <OurLeaders />
+          <div className="main-container">
+            <OurLeaders />
+          </div>
         </div>
       </div>
     );

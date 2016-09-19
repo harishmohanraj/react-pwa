@@ -23,13 +23,12 @@ export default class Main extends React.Component {
       displayInputValue : MainStore.getState().displayInputValue,
       data : MainStore.getState().data
     })
-    console.log(this.state.data.data)
   }
   componentWillMount(){
-    MainStore.on('change',this.updateState.bind(this))
+    //MainStore.on('change',this.updateState.bind(this))
   }
   componentDidMount(){
-    MainAction.makeAjaxRequest(config.vehecleWiseAccidents);
+    //MainAction.makeAjaxRequest(config.vehecleWiseAccidents);
   }
 
   onChange(e){

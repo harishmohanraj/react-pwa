@@ -6,6 +6,7 @@ import config from '../config/config.js';
 import Bar from '../components/chart/chart.jsx';
 import Header from '../components/header/header.jsx';
 import OurLeaders from './our-leaders.jsx';
+import CrimeInStates from './crime-in-states.jsx';
 import SideBar from '../components/sidebar/sidebar.jsx';
 
 

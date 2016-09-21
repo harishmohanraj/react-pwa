@@ -12,11 +12,11 @@ export default class SideBar extends React.Component{
     }
     
     generateLists(){
-        return Config.routes.map(list => this.returnListItem(list))    
+        return Config.routes.map((list,i) => this.returnListItem(list,i))    
     }
 
-    returnListItem(list){
-        return <li><a href="#">{list.name}</a></li>
+    returnListItem(list,i){
+        return <li key={i}><a href="#">{list.name}</a></li>
     }
 
     render(){

@@ -1,12 +1,10 @@
 import React from 'react';
 import {Bar} from 'react-chartjs';
-import MainStore from '../../stores/main-store.js';
 
 require('./chart.scss');
 
 export default class Chart extends React.Component{
     constructor(){
-        console.log(MainStore.getState().data)
         super()
         this.state={
             chartData : {
@@ -39,6 +37,7 @@ export default class Chart extends React.Component{
     }
 
     render(){
+        console.log(this.props.dataList)
         return <Bar data={this.state.chartData} width="600" height="250"/>
     }
 }

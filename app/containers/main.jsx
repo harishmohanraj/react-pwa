@@ -1,4 +1,4 @@
-import React from 'react';  
+import React, {Component} from 'react';  
 import ReactDOM from 'react-dom';  
 import MainStore from '../stores/main-store.js';
 import * as MainAction from '../actions/main-action.js';

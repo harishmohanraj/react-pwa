@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {Bar} from 'react-chartjs';
 
 require('./chart.scss');

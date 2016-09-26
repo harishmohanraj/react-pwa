@@ -1,10 +1,10 @@
-import React from 'react';  
+import React, {Component} from 'react';  
 import ReactDOM from 'react-dom'; 
 import CrimeInStatesStore from '../stores/crime-in-states-store.js';
 import * as MainAction from '../actions/main-action.js';
 import config from '../config/config.js';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import Chart from '../components/chart/chart.jsx';
+//import Chart from '../components/chart/chart.jsx';
 
 export default class CrimeInStates extends React.Component{
     constructor(){

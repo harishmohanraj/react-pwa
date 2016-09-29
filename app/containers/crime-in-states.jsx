@@ -4,7 +4,9 @@ import CrimeInStatesStore from '../stores/crime-in-states-store.js';
 import * as MainAction from '../actions/main-action.js';
 import config from '../config/config.js';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-//import Chart from '../components/chart/chart.jsx';
+import FormatChartData from '../utils/formatChartData.js'
+import Chart from '../components/chart/chart.jsx';
+
 
 export default class CrimeInStates extends React.Component{
     constructor(){
@@ -42,12 +44,10 @@ export default class CrimeInStates extends React.Component{
         MainAction.makeAjaxRequest(requestObj);
     }
 
-    renderChart(crimesData){
-        // Data needs to be filtered as per the angular App
-        // and passed to the chart component
+    renderChart(crimesDataList){
+        return crimesDataList ? <Chart dataList={FormatChartData(crimesDataList)}/> : <div className="spinner"></div>;
     }
     
-
     render(){
         return(
             <div className="col-12">

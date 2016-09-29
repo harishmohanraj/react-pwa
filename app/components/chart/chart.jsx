@@ -38,6 +38,6 @@ export default class Chart extends React.Component{
 
     render(){
         console.log(this.props.dataList)
-        return <Bar data={this.state.chartData} width="600" height="250"/>
+        //return <Bar data={this.state.chartData} width="600" height="250"/>
     }
 }
